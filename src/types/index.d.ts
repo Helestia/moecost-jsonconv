@@ -1,4 +1,31 @@
 declare namespace moeCostJsonConv {
+    type outputRecipe = {
+        レシピ名 : string,
+        材料 : {
+            アイテム : string,
+            個数? : number,
+            特殊消費? : "消失" | "消費" | "未消費" | "失敗時消失"
+        }[],
+        生成物 : {
+            アイテム : string,
+            個数? : number
+        },
+        副産物? : {
+            アイテム : string,
+            個数? : number
+        }[],
+        テクニック : string[],
+        スキル : {
+            スキル名 : string,
+            スキル値 : number
+        }[],
+        要レシピ : boolean,
+        ギャンブル : boolean,
+        ペナルティ : boolean,
+        備考? : string
+    }
+
+
     type createItems = {
         [s:string] : number;
     }

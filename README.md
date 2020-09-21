@@ -23,6 +23,17 @@ $ cd moecost-jsonconv
 $ npm start
 ```
 
+### 実行時の注意点
+
+プロジェクト実行後、`/tsconfig.json`の`compilerOptions.resolveJsonModule`が`true`に変更されます。
+これにより、読み取りJSON用の型定義を記載しているにもかかわらず、型をうまく解決できなくなってエラーになります。
+
+react/typescriptの基幹部の修正が必要と思われるのですが、正直怖くてできません。
+**正しい**対応方法をご存知の方は、教えていただければと思います。
+
+暫定対応として、一度プロジェクト開始後に、`tsconfig.json`の`compilerOptions.resolveJsonModule`を`false`に変更して上書き。
+その後、`/src/index.tsx/`か何か、プロジェクトの再更新が行われるファイルの空上書きを実施することで正常に表示されます。
+
 ## ライセンス
 
 ### プログラムソースについて

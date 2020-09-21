@@ -1,13 +1,6 @@
-import { RSA_X931_PADDING } from 'constants';
 import React from 'react';
 import 'react-app-polyfill/ie11';
 import {recipes,items,npcs} from './scripts/json-imports'
-
-interface mainState {
-  recipes : moeCostJsonConv.moecoopData.レシピ[],
-  npcs : moeCostJsonConv.moecoopData.NPC販売情報[],
-  items : moeCostJsonConv.moecoopData.アイテム情報[]
-}
 
 function main() {
   // レシピの加工１
@@ -223,11 +216,100 @@ function DispRecipes(
     recipes : moeCostJsonConv.レシピ副産物[]
   }
 ){
+  const results = 
+  props.recipes.reduce<moeCostJsonConv.outputRecipe[]>((acc,cur) => {
+    type 材料 = {
+      アイテム : string,
+      個数? : number,
+      特殊消費? : "消失" | "消費" | "未消費" | "失敗時消失"
+    };
+    type 生成物 = {
+      アイテム : string,
+      個数? : number
+    }
+    type 副産物 = {
+      アイテム : string,
+      個数? : number
+    } | null
+
+    type スキル = {
+      スキル名 : string,
+      スキル値 : number
+    }
+
+    // 材料情報の変形
+    let materials : 材料[] = [];
+    Object.keys(cur.材料).forEach(val => {
+      let material : 材料 = {アイテム : val};
+      if(cur.材料[val] !== 1){
+        material.個数 = cur.材料[val];
+      }
+      if(cur.特殊消費 && cur.特殊消費[val]){
+        material.特殊消費 = cur.特殊消費[val];
+      }
+      materials.push(material);
+    });
+
+    // 生産品情報のデータ変形
+    const creationItem = Object.keys(cur.生成物)[0];
+    let creation : 生成物 = {
+      "アイテム" : creationItem
+    };
+    if(cur.生成物[creationItem] !== 1){
+      creation.個数 = cur.生成物[creationItem];
+    };
+
+    // 副産物のデータ変形
+    let byProductItems : {
+      アイテム : string,
+      個数? : number
+    }[] | null = null
+    if(cur.副産物){
+      byProductItems =
+        Object.keys(cur.副産物).reduce<{
+          アイテム:string,
+          個数?:number
+        }[]>((acc,current) => {
+          let result : {アイテム:string,個数?:number} = {アイテム : current};
+          if(cur.副産物 && cur.副産物[current] !== 1){
+            result.個数 = cur.副産物[current];
+          }
+          acc.push(result);
+          return acc;
+      },[])
+    }
+
+    // 要求スキルの変形
+    let skills : スキル[] = Object.keys(cur.スキル).map(val => {
+      return {スキル名 : val,スキル値 : cur.スキル[val]};
+    })
+
+    
+    let result : moeCostJsonConv.outputRecipe = {
+      レシピ名 : cur.名前,
+      材料 : materials,
+      生成物 : creation,
+      テクニック : cur.テクニック,
+      スキル : skills,
+      要レシピ : cur.レシピが必要,
+      ギャンブル : cur.ギャンブル型,
+      ペナルティ : cur.ペナルティ型,
+    };
+    
+    if(cur.備考){
+      result.備考 = cur.備考
+    }
+    if(byProductItems){
+      result.副産物 = byProductItems;
+    }
+    acc.push(result);
+    return acc;
+  },[])
   return (
     <div className="okJson">
       <h2>レシピ情報</h2>
       <textarea rows={10} cols={50}
-        value={JSON.stringify(props.recipes)} readOnly />
+        value={JSON.stringify(results)} readOnly />
     </div>
   )
 }
@@ -299,7 +381,7 @@ function DispItems (
     }
   });
   items.forEach(item => {
-    if(createItems.indexOf(item.名前)){
+    if(createItems.indexOf(item.名前) !== -1){
       result[item.名前] = item.スタックできる;
     }
   });
