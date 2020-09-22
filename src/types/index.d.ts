@@ -25,7 +25,6 @@ declare namespace moeCostJsonConv {
         備考? : string
     }
 
-
     type createItems = {
         [s:string] : number;
     }

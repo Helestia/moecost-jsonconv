@@ -372,7 +372,7 @@ function DispItems (
     items : moeCostJsonConv.moecoopData.アイテム情報[]
   }
 ){
-  const result : {[s:string] : boolean} = {};
+  const result : string[] = [];
   const createItems : string[] = [];
   props.recipes.forEach(recipe => {
     const createItemName = Object.keys(recipe.生成物)[0];
@@ -380,14 +380,15 @@ function DispItems (
       createItems.push(createItemName);
     }
   });
-  items.forEach(item => {
-    if(createItems.indexOf(item.名前) !== -1){
-      result[item.名前] = item.スタックできる;
+  props.items.forEach(item => {
+    if(item.スタックできる &&
+      createItems.indexOf(item.名前) !== -1){
+      result.push(item.名前);
     }
   });
   return (
     <div className="okJson">
-      <h2>アイテム情報</h2>
+      <h2>スタック可能アイテム一覧</h2>
       <textarea rows={10} cols={50}
         value={JSON.stringify(result)} readOnly />
     </div>
