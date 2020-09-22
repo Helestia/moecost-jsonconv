@@ -112,59 +112,59 @@ export const npcs : moeCostJsonConv.NPC販売情報_エリア情報追加[] = []
 
 
 npc01.forEach(function(value){
-    npcs.push(Object.assign(value,{"エリア":"アルビーズの森"}))
+    npcs.push(Object.assign(value,{"エリア":"アルビーズの森","時代":"Present Age"}))
 });
 
 for (const value of npc02){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"イルヴァーナ渓谷"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"イルヴァーナ渓谷","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc03){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エイシス・ケイブ"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エイシス・ケイブ","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc04){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エルビン山脈"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エルビン山脈","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc05){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エルビン渓谷"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エルビン渓谷","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc06){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ヌブール村"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ヌブール村","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc07){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ネオク山"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ネオク山","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc08){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ネオク高原"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ネオク高原","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc09){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ビスク地下水路"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ビスク地下水路","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc10){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ミーリム海岸"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ミーリム海岸","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc11){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ムトゥーム地下墓地"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ムトゥーム地下墓地","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc12){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"城下町ビスク"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"城下町ビスク","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc13){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"隠れ里ネヤ"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"隠れ里ネヤ","時代":"Present Age"});
     npcs.push(npcsails)
 }
 for (const value of npc14){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"飛竜の谷"});
+    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"飛竜の谷","時代":"Present Age"});
     npcs.push(npcsails)
 }
 

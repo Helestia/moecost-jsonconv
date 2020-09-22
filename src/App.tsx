@@ -320,7 +320,19 @@ function DispNpcs(
     npcs : moeCostJsonConv.NPC販売情報_エリア情報追加[]
   }
 ){
-  const result : moeCostJsonConv.NPC販売情報_エリア情報追加[] = [];
+  type result = {
+    アイテム: string,
+    最低販売価格 : number,
+    販売情報 : 販売情報[]
+  };
+  type 販売情報 = {
+    販売員:string,
+    エリア:string,
+    時代:string,
+    価格:number,
+    備考?:string
+  }
+  const results : result[] = [];
   // レシピ利用アイテムのリスト化
   const recipeUseItems:string[] = [];
   props.recipes.forEach(recipe => {
@@ -337,31 +349,50 @@ function DispNpcs(
       itemEntry(Object.keys(recipe.副産物));
     }
   });
-  // レシピ使用アイテムのみ登録
+  // 販売員情報のとりあえず登録
   props.npcs.forEach(npc => {
-    let entryedItems:{
-      [s:string]:{
-        価格 : number,
-        備考? : string
-      }} = {};
     Object.keys(npc.販売情報).forEach(item => {
-      if(recipeUseItems.indexOf(item) !== -1){
-        entryedItems[item] = npc.販売情報[item];
-      }
-    });
-    if(Object.keys(entryedItems).length > 0){
-      result.push({
-        名前 : npc.名前,
-        エリア : npc.エリア,
-        販売情報 : entryedItems
+      if(recipeUseItems.indexOf(item) === -1) return;
+      let index = results.findIndex(result=>{
+        return result.アイテム === item
       });
-    }
-  })
+      if(index === -1){
+        results.push({
+          "アイテム" : item,
+          "最低販売価格" : 0,
+          "販売情報" : []
+        });
+        index = results.length - 1;
+      }
+      if(npc.販売情報[item].備考) {
+        results[index].販売情報.push({
+          "エリア" : npc.エリア,
+          "時代" : npc.時代,
+          "販売員" : npc.名前,
+          "価格": npc.販売情報[item].価格,
+          "備考": npc.販売情報[item].備考
+        });
+      } else {
+        results[index].販売情報.push({
+          "エリア" : npc.エリア,
+          "時代" : npc.時代,
+          "販売員" : npc.名前,
+          "価格": npc.販売情報[item].価格
+        });
+      }
+      // 最低販売価格の更新
+      if(results[index].最低販売価格 === 0 ||
+        results[index].最低販売価格 >= npc.販売情報[item].価格){
+          results[index].最低販売価格 = npc.販売情報[item].価格
+        }
+    });
+  });
+
   return (
     <div className="okJson">
-      <h2>NPC情報</h2>
+      <h2>NPC購入可能アイテム情報</h2>
       <textarea rows={10} cols={50}
-        value={JSON.stringify(result)} readOnly />
+        value={JSON.stringify(results)} readOnly />
     </div>
   )
 }

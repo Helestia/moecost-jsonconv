@@ -30,7 +30,8 @@ declare namespace moeCostJsonConv {
     }
 
     interface NPC販売情報_エリア情報追加 extends moecoopData.NPC販売情報 {
-        エリア : string
+        エリア : string,
+        時代 : string
     };
 
     interface レシピ副産物 extends moecoopData.レシピ {
