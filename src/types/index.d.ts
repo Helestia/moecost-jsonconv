@@ -59,6 +59,8 @@ declare namespace moeCostJsonConv {
         };
         interface NPC販売情報 {
             名前 : string,
+            エリア : string,
+            時代 : string,
             販売情報 : {
                 [s:string] : {
                     価格 : number,

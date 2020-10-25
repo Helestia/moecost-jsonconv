@@ -41,6 +41,22 @@ import npc12 from '../moecoop-data/resource/売店/present/城下町ビスク.js
 import npc13 from '../moecoop-data/resource/売店/present/隠れ里ネヤ.json';
 import npc14 from '../moecoop-data/resource/売店/present/飛竜の谷.json';
 
+import npc21 from '../moecoop-data/resource/売店/Ancient/モラ・タワー.json';
+import npc22 from '../moecoop-data/resource/売店/Ancient/ソレス渓谷.json';
+import npc23 from '../moecoop-data/resource/売店/Ancient/ユグ海岸.json';
+import npc24 from '../moecoop-data/resource/売店/Ancient/ゲオの深淵_北東エリア.json';
+import npc25 from '../moecoop-data/resource/売店/Ancient/ゲオの深淵_西エリア.json';
+import npc26 from '../moecoop-data/resource/売店/Ancient/ゲオの深淵_南エリア.json';
+import npc27 from '../moecoop-data/resource/売店/Ancient/シスの天空島.json';
+import npc28 from '../moecoop-data/resource/売店/Ancient/ミトヤの大樹.json';
+import npc29 from '../moecoop-data/resource/売店/Ancient/旅の商人.json';
+
+import npc41 from '../moecoop-data/resource/売店/war/ヌブールの村.json';
+import npc42 from '../moecoop-data/resource/売店/war/タルタロッサ・パレス.json';
+import npc43 from '../moecoop-data/resource/売店/war/城下町ビスク.json';
+import npc44 from '../moecoop-data/resource/売店/war/エルガディン王国.json'
+import npc45 from '../moecoop-data/resource/売店/war/CCandDA.json'
+
 /**
  * moecoop-data
  * アイテム
@@ -108,65 +124,10 @@ import item99 from '../spot-moecoop-data/resource/アイテム/複製用・仮�
 export const recipes = recipe01.concat(recipe02).concat(recipe03).concat(recipe04).concat(recipe05).concat(recipe06).concat(recipe07).concat(recipe08).concat(recipe09).concat(recipe10).concat(recipe20);
 
 // npc販売情報に地区情報付与して結合
-export const npcs : moeCostJsonConv.NPC販売情報_エリア情報追加[] = [];
-
-
-npc01.forEach(function(value){
-    npcs.push(Object.assign(value,{"エリア":"アルビーズの森","時代":"Present Age"}))
-});
-
-for (const value of npc02){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"イルヴァーナ渓谷","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc03){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エイシス・ケイブ","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc04){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エルビン山脈","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc05){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"エルビン渓谷","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc06){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ヌブール村","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc07){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ネオク山","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc08){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ネオク高原","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc09){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ビスク地下水路","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc10){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ミーリム海岸","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc11){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"ムトゥーム地下墓地","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc12){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"城下町ビスク","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc13){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"隠れ里ネヤ","時代":"Present Age"});
-    npcs.push(npcsails)
-}
-for (const value of npc14){
-    const npcsails:moeCostJsonConv.NPC販売情報_エリア情報追加 = Object.assign(value , {エリア:"飛竜の谷","時代":"Present Age"});
-    npcs.push(npcsails)
-}
+export const npcs = npc01.concat(npc02).concat(npc03).concat(npc04).concat(npc05).concat(npc06).concat(npc07).concat(npc08).concat(npc09).concat(npc10)
+    .concat(npc11).concat(npc12).concat(npc13).concat(npc14)
+    .concat(npc21).concat(npc22).concat(npc23).concat(npc24).concat(npc25).concat(npc26).concat(npc27).concat(npc28).concat(npc29)
+    .concat(npc41).concat(npc42).concat(npc43).concat(npc44).concat(npc45)
 
 export const items:moeCostJsonConv.moecoopData.アイテム情報[] = item21.concat(item22).concat(item23).concat(item24).concat(item25).concat(item26).concat(item27).concat(item28).concat(item29).concat(item30)
             .concat(item41).concat(item42).concat(item43).concat(item44).concat(item45).concat(item46).concat(item47).concat(item48).concat(item49).concat(item50)

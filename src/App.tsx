@@ -98,7 +98,7 @@ function main() {
     create:moeCostJsonConv.createItems,
     byProduct:moeCostJsonConv.createItems
   ) => {
-    const result : moeCostJsonConv.レシピ副産物 = Object.assign(obj,{});
+    const result : moeCostJsonConv.レシピ副産物 = Object.assign({},obj);
     result.名前 = name;
     result.生成物 = create;
     result.副産物 = byProduct;
