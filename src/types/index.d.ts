@@ -22,6 +22,7 @@ declare namespace moeCostJsonConv {
         要レシピ : boolean,
         ギャンブル : boolean,
         ペナルティ : boolean,
+        同時作成回数上限?: number
         備考? : string
     }
 
@@ -55,6 +56,7 @@ declare namespace moeCostJsonConv {
             レシピが必要 : boolean,
             ギャンブル型 : boolean,
             ペナルティ型 : boolean,
+            同時作成回数上限? : number,
             備考? : string
         };
         interface NPC販売情報 {

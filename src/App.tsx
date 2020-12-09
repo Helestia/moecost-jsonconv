@@ -146,6 +146,9 @@ function main() {
       <ErrorNoItemsEntry
         recipes={r3}
         items={items} />
+      <ErrorNoItemsMaterials
+        recipes={r3}
+        items={items} />
       <ErrorMultiCreateItems
         recipes={r3} />
       <DispRecipes
@@ -186,6 +189,42 @@ function ErrorNoItemsEntry(
     </div>
   );
 }
+/**
+ * 
+ * 
+ */
+function ErrorNoItemsMaterials(
+  props:{
+    recipes :moeCostJsonConv.レシピ副産物[],
+    items :moeCostJsonConv.moecoopData.アイテム情報[]
+  }
+){
+  type tResult = {
+    生成物: string,
+    材料: string
+  }
+  const result = props.recipes.reduce<tResult[]>((a1,c1) => {
+    const materials = Object.keys(c1.材料);
+    const noItemMaterials = materials.reduce<tResult[]>((a2,c2) => {
+      if(props.items.every(i => i.名前 !== c2)) return a2.concat({生成物: c1.名前,材料: c2});
+      return a2
+    },[]);
+    return a1.concat(noItemMaterials);
+  },[]);
+  return (
+    <div className="error">
+      <h2>材料アイテムのアイテム情報なし</h2>
+      <textarea rows={10} cols={50} 
+        value={JSON.stringify(result)} readOnly />
+    </div>
+  );
+
+
+
+}
+
+
+
 /**
  * ERROR
  * 生産品複数対象　mainで処理漏れしたアイテム
@@ -301,6 +340,9 @@ function DispRecipes(
     }
     if(byProductItems){
       result.副産物 = byProductItems;
+    }
+    if(cur.同時作成回数上限){
+      result.同時作成回数上限 = cur.同時作成回数上限;
     }
     acc.push(result);
     return acc;
