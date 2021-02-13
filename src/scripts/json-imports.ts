@@ -60,6 +60,7 @@ const recipe09:tRecipe[] = require('../moecoop-data/resource/レシピ/合成.js
 const recipe10:tRecipe[] = require('../moecoop-data/resource/レシピ/複合.json');
 
 const recipe20:tRecipe[] = require('../spot-moecoop-data/resource/レシピ/複製.json');
+const recipe21:tRecipe[] = require('../spot-moecoop-data/resource/レシピ/収穫.json');
 
 /**
  * moecoop-data
@@ -162,7 +163,7 @@ const item69:tItem[] = require('../moecoop-data/resource/アイテム/アセッ�
 
 const item99:tItem[] = require('../spot-moecoop-data/resource/アイテム/複製用・仮名.json');
 
-export const recipes = recipe01.concat(recipe02).concat(recipe03).concat(recipe04).concat(recipe05).concat(recipe06).concat(recipe07).concat(recipe08).concat(recipe09).concat(recipe10).concat(recipe20);
+export const recipes = recipe01.concat(recipe02).concat(recipe03).concat(recipe04).concat(recipe05).concat(recipe06).concat(recipe07).concat(recipe08).concat(recipe09).concat(recipe10).concat(recipe20).concat(recipe21);
 
 // npc販売情報に地区情報付与して結合
 export const npcs = npc01.concat(npc02).concat(npc03).concat(npc04).concat(npc05).concat(npc06).concat(npc07).concat(npc08).concat(npc09).concat(npc10)
