@@ -116,16 +116,16 @@ function main() {
       r3.push(pushObjectAssembly(val,"カニの甲羅",{"カニの甲羅":1},{"カニの足":10}));
     }
     else if(val["名前"] === "かけそば"){
-      r3.push(pushObjectAssembly(val,"かけそば",{"かけそば":2},{"そば湯":1}));
+      r3.push(pushObjectAssembly(val,"かけそば",{"かけそば":2},{"そば湯":2}));
     }
     else if(val["名前"] === "ざるそば"){
-      r3.push(pushObjectAssembly(val,"ざるそば",{"ざるそば":2},{"そば湯":1}));
+      r3.push(pushObjectAssembly(val,"ざるそば",{"ざるそば":2},{"そば湯":2}));
     }
     else if(val["名前"] === "かけそば(十割そば)"){
-      r3.push(pushObjectAssembly(val,"かけそば(十割そば)",{"かけそば":2},{"そば湯":1}));
+      r3.push(pushObjectAssembly(val,"かけそば(十割そば)",{"かけそば":2},{"そば湯":2}));
     }
     else if(val["名前"] === "ざるそば(十割そば)"){
-      r3.push(pushObjectAssembly(val,"ざるそば(十割そば)",{"ざるそば":2},{"そば湯":1}));
+      r3.push(pushObjectAssembly(val,"ざるそば(十割そば)",{"ざるそば":2},{"そば湯":2}));
     }
     else if(val["名前"] === "岩茸のテンプラ"){
       r3.push(pushObjectAssembly(val,"岩茸のテンプラ",{"岩茸のテンプラ":5},{"揚げ玉":5}));
